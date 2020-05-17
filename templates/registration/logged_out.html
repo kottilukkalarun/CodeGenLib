@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+Logout
+{% endblock title %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+<div class="row">
+    <div class="col form-group">
+        <p class="font-weigth-light">
+            You have been logged out.<br/>
+            <a href="{% url 'login' %}" class="text-info"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a>
+            <meta http-equiv="REFRESH" content="0;url={% url 'login' %}">
+        </p>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock content %}

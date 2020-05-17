@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+Welcome to Code Gen Lib.
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<div class="container">
+<form method="POST" action="getresult">{% csrf_token %}
+    <div class="row form-group">
+        <div class="col">
+            <input type="text" class="form-control searchQuery" placeholder="enter your search query..." name="searchQuery" autocomplete="false" />
+        </div>
+    </div>
+</form>
+</div>
+
+{% else %}
+<div class="container">
+<p class="font-weigth-light">
+    Only authorized users can access this site.<br/>
+    <a href="{% url 'login' %}" class="text-info">Login</a>
+    
+</p>
+</div>
+
+{% endif %}
+
+{% endblock content %}
+
+

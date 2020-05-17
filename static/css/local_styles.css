@@ -1,0 +1,17 @@
+.searchQuery{
+  height: 100%;
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  padding: 10px 32px 10px 70px;
+  font-size: 18px;
+  height: 70px;
+  color: #fff;
+  background: linear-gradient(to right, #3daff3 0%, #4c6dd5 28%, #ff3b1a 91%, #ff4b5a 100%);
+  font-family: 'Lato', sans-serif;
+  
+}
+
+.searchQuery::placeholder{
+  color: #fff;
+}

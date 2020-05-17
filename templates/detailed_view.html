@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Article Details
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col col-md-2"><a href="addreference">Add New Article</a></div>
+</div>
+
+<table class="table-bordered">
+    
+    <tr>
+        <th>Artitcle Title</th><td>{{ data.article_title }}</td>
+    </tr>
+
+    <tr>
+        <th>Artitcle Category</th><td>{{ data.article_topic_type }}</td>
+    </tr>
+
+    
+    <tr>
+        <th>Published By</th>
+        <td>{{ data.article_updated_by }}</td>
+    </tr>
+    <tr>
+        <th>Published on</th>
+        <td>{{ data.last_updated_date }}</td>
+    </tr>
+    <tr>
+        <th colspan="2" class="text-center">Content</th>
+    </tr>
+    <tr>
+        <td class="text-justify text-muted" colspan="2">{{ data.article_content }}</td>
+    </tr>
+
+
+
+
+
+</table>
+    
+    </ul>
+    
+</div>
+
+
+{% endblock content %}
+

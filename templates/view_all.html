@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+View All Data
+{% endblock title %}
+
+{% block content %}
+
+
+
+{% if request.user.is_authenticated %}
+
+<div class="container">
+<div class="row">
+    <div class="col col-md-2"><a href="addreference">Add New Article</a></div>
+</div>
+    <table class="table table-responsive table-bordered">
+        <thead>
+            <th>Article Title</th>
+            <th>Article Content</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>Published by</th>
+            <th>Last update time</th>
+            {% if 'sudo_su' in request.user.username %}
+            <th>Actions</th>
+            {% endif %}
+        </thead>
+<tbody>
+
+        {% for data in database %}
+        <tr>
+            <td><a href="detailView/{{data.id}}">{{ data.article_title }}</a></td>
+            <td>{{ data.article_content }}</td>
+            <td>{{ data.likes }}</td>
+            <td>{{ data.dislikes }}</td>
+            <td>{{ data.article_updated_by }}</td>
+            <td>{{ data.last_updated_date }}</td>
+            {% if 'sudo_su' in request.user.username %}
+            <td><a href="{% url 'editreference' data.id %}">Edit</a>&nbsp;|&nbsp;<a href="{% url 'deletereference' data.id %}">Delete</a></td>
+            {% endif %}
+
+        </tr>
+      {% endfor %}
+</tbody>
+</table>
+    
+</div>
+{% else %}
+
+
+<div class="container">
+    <p class="font-weigth-light">
+        Only authorized users can access this site.<br/>
+        <a href="{% url 'login' %}" class="text-info">Login</a>
+        
+    </p>
+    </div>
+
+{% endif %}
+
+{% endblock content %}
+
